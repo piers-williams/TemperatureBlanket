@@ -1,0 +1,5 @@
+.idea/
+*.csv
+*.bak
+target/
+*.png
