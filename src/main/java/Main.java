@@ -14,12 +14,12 @@ public class Main {
         final int squareHeight = 30;
         var width = 18;
         var height = 21;
-        var image = new BufferedImage((width + 2) * squareHeight, (height + 2) * squareHeight, BufferedImage.TYPE_INT_RGB );
+        var image = new BufferedImage((width) * squareHeight, (height) * squareHeight, BufferedImage.TYPE_INT_RGB );
         var graphics = image.getGraphics();
 
         for(int i = 0; i <= width; i++){
             for(int j = 0; j <= height; j++){
-                var index = (i * width) + j;
+                var index = (i * height) + j;
                 if(temperatureData.length > index) {
                     var temps = temperatureData[index];
                     graphics.setColor(scaleData.get(Math.round(temps[0])));
