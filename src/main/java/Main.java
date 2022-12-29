@@ -7,10 +7,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         var temperatureFileName = args[0];
-        var scaleFileName = args[1];
+        var minLoc = Integer.parseInt(args[1]);
+        var maxLoc = Integer.parseInt(args[2]);
+        var scaleFileName = args[3];
+        var outputFileName = args[4];
 
-        var temperatureData = Temperatures.readTemperatures(temperatureFileName);
-        var scaleData = TemperatureScale.getColors(scaleFileName);
+        var temperatureData = Temperatures.readTemperatures(temperatureFileName, minLoc, maxLoc);
+        var scaleData = TemperatureScale.fixColors(TemperatureScale.getColors(scaleFileName));
         final int squareHeight = 30;
         var width = 18;
         var height = 21;
@@ -33,7 +36,7 @@ public class Main {
             }
         }
 
-        File file = new File(args[2]);
+        File file = new File(outputFileName);
         ImageIO.write(image, "png", file);
     }
 }
